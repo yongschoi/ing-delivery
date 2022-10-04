@@ -3,7 +3,7 @@ package yongs.temp.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,14 +20,14 @@ public class DeliveryController {
 	DeliveryService deliveryService;
 
 	@GetMapping("/no/{no}")
-	public Delivery findByNo(@PathVariable("no") long no) throws Exception {
+	public Delivery findByNo(@PathVariable("no") long no) {
 		log.debug("DeliveryController.findByNo()");
 		return deliveryService.findByNo(no);
 	}
 	
-	@PostMapping("/update") 
-    public void update(@RequestBody Delivery delivery) throws Exception {
-		log.debug("DeliveryController.update()", delivery);
-		deliveryService.update(delivery);
+	@PutMapping("/updateAddress") 
+    public void updateAddress(@RequestBody Delivery delivery) {
+		log.debug("DeliveryController.updateAddress({})", delivery);
+		deliveryService.updateAddress(delivery);
     }
 }

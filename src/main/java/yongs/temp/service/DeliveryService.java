@@ -94,7 +94,7 @@ public class DeliveryService {
 		}
 	}
 	
-	public void update(Delivery delivery) {
+	public void updateAddress(Delivery delivery) {
 		Delivery savedDelivery = repo.findByNo(delivery.getNo());
 		savedDelivery.setAddress(delivery.getAddress());
 		repo.save(savedDelivery);
